@@ -1,0 +1,8 @@
+{
+	"paths": [
+		"C:/Repository/ManifoldTemplate\Engine/Assets\Shaders\baseLit.shader",
+		"C:/Repository/ManifoldTemplate\Engine/Assets\Shaders\flatColor.shader",
+		"C:/Repository/ManifoldTemplate\Engine/Assets\Shaders\sprite.shader",
+		"C:/Repository/ManifoldTemplate\Engine/Assets\Shaders\unlit.shader",
+	],
+}
