@@ -22,7 +22,9 @@ int WinMain(
     Application app;
     World& world = app.getWorld();
     world.createSystem<OpenGLSystem>();
+#if MANI_DEBUG
     world.createSystem<ManImGuiSystem>();
+#endif
     app.run();
 
     return EXIT_SUCCESS;
