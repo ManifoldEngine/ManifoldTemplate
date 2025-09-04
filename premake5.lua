@@ -1,5 +1,5 @@
 include "locations.lua"
-include "Engine/BuildScripts/buildwebgl.lua"
+include "Engine/Scripts/Build/buildwebgl.lua"
 
 workspace "Manifold"
 
