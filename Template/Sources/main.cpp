@@ -1,6 +1,5 @@
 #include <Core/CoreFwd.h>
 #include <OpenGL/OpenGLSystem.h>
-#include <ManImGui/ManImGuiSystem.h>
           
 #if !MANI_CONSOLE_APP && MANI_WINDOWS
 #include <windows.h>
@@ -22,9 +21,7 @@ int WinMain(
     Application app;
     World& world = app.getWorld();
     world.createSystem<OpenGLSystem>();
-#if MANI_DEBUG
-    world.createSystem<ManImGuiSystem>();
-#endif
+
     app.run();
 
     return EXIT_SUCCESS;
