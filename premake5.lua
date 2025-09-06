@@ -1,5 +1,4 @@
-include "locations.lua"
-include "Engine/Scripts/Build/buildwebgl.lua"
+local locations = require("locations")
 
 workspace "Manifold"
 
@@ -9,16 +8,19 @@ configurations { "Debug", "Release", "Distribution" }
     language "C++"
     cppdialect "C++20"
     flags { "MultiProcessorCompile" }
-    targetdir ("bin/" .. outputdir)
-    objdir ("bin-int/" .. outputdir)
+    targetdir ("bin/" .. locations.outputdir)
+    objdir ("bin-int/" .. locations.outputdir)
 
     -- ManiMaths
-    includedirs { thirdpartiesdir .. "/ManiMaths/include" }
+    includedirs { locations.thirdpartiesdir .. "/ManiMaths/include" }
     -- ManiTests
-    includedirs { thirdpartiesdir .. "/ManiTests/include" }
+    includedirs { locations.thirdpartiesdir .. "/ManiTests/include" }
     -- ManiZ
-    includedirs { thirdpartiesdir .. "/ManiZ/include"}
-    
+    includedirs { locations.thirdpartiesdir .. "/ManiZ/include"}
+
+    -- use opengl coordinate system
+    defines { "MANI_COORDINATE_ZMINUSFORWARD_YUP" }
+
     filter "configurations:Debug"
         defines { "MANI_DEBUG", "MANI_CONSOLE_APP" }
         defines { "MANI_PROJECTROOT_PATH=\"".. _MAIN_SCRIPT_DIR .. "\"" }
@@ -60,7 +62,7 @@ project "Template"
 
     links { "Core", "OpenGL", "Camera", "FloatingCamera", "Resources", "RenderAPI", "Inputs" }
 
-    includedirs { moduledir .. "/**", "%{prj.name}/Sources" }
+    includedirs { locations.moduledir .. "/**", "%{prj.name}/Sources" }
 
     filter "configurations:Debug"
         links { "ManImGui" }
