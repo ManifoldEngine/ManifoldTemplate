@@ -1,3 +1,3 @@
 @ECHO OFF
-Engine\AssetImporter\bin\AssetImporter.exe
+Engine\AssetImporter\Build\AssetImporter.exe
 PAUSE
