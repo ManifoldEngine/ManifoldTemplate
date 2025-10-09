@@ -6,7 +6,7 @@ configurations { "Debug", "Release", "Distribution" }
     platforms { "Win64", "WebGL" }
     startproject "Sandbox"
     language "C++"
-    cppdialect "C++20"
+    cppdialect "C++23"
     flags { "MultiProcessorCompile" }
     targetdir ("bin/" .. locations.outputdir)
     objdir ("bin-int/" .. locations.outputdir)
