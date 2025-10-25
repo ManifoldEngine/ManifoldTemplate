@@ -1,66 +1,21 @@
+
 local locations = require("locations")
+local mani = require("Engine.Scripts.mani")
 
-workspace "Manifold"
+-- your project name here
+local projectName = "Template"
+local workspaceName = "Manifold"
 
-configurations { "Debug", "Release", "Distribution" }
-    platforms { "Win64", "WebGL" }
-    startproject "Sandbox"
-    language "C++"
-    cppdialect "C++23"
-    flags { "MultiProcessorCompile" }
-    targetdir ("bin/" .. locations.outputdir)
-    objdir ("bin-int/" .. locations.outputdir)
-
-    -- ManiMaths
-    includedirs { locations.thirdpartiesdir .. "/ManiMaths/include" }
-    -- ManiTests
-    includedirs { locations.thirdpartiesdir .. "/ManiTests/include" }
-    -- ManiZ
-    includedirs { locations.thirdpartiesdir .. "/ManiZ/include"}
-
-    -- use opengl coordinate system
-    defines { "MANI_COORDINATE_ZMINUSFORWARD_YUP" }
-
-    filter "configurations:Debug"
-        defines { "MANI_DEBUG", "MANI_CONSOLE_APP" }
-        defines { "MANI_PROJECTROOT_PATH=\"".. _MAIN_SCRIPT_DIR .. "\"" }
-        symbols "On"
-    
-    filter "configurations:Release"
-        defines { "MANI_RELEASE" }
-        defines { "MANI_PROJECTROOT_PATH=\"".. _MAIN_SCRIPT_DIR .. "\"" }
-        optimize "On"
-
-    filter "configurations:Distribution"
-        defines { "MANI_DISTRIBUTION" }
-        optimize "On"
-
-    filter "platforms:Win64"
-        architecture "x64"
-        system "windows"
-
-    filter "platforms:WebGL"
-        defines { "MANI_WEBGL" }
-        linkoptions { "-sUSE_GLFW=3", "-sMAX_WEBGL_VERSION=2" }
-        system "windows"
-        
-    filter "system:windows"
-        defines { "MANI_WINDOWS" }
-
-    filter "kind:ConsoleApp"
-        defines { "MANI_CONSOLE_APP" }
-
-group "Engine"
-    include "Engine"
-group ""
+mani.workspace.setup(workspaceName, projectName)
+mani.workspace.includeEngine()
 
 -- Executables
-project "Template"
+project (projectName)
     location "%{prj.name}"
 
     files { "%{prj.name}/**.h", "%{prj.name}/**.cpp" }
 
-    links { "Core", "OpenGL", "Camera", "FloatingCamera", "Resources", "RenderAPI", "Inputs" }
+    links { "Core", "OpenGL", "Camera", "FloatingCamera", "Resources", "RenderAPI", "Inputs", "UI", "Sprite", "Animation", "FMod" }
 
     includedirs { locations.moduledir .. "/**", "%{prj.name}/Sources" }
 

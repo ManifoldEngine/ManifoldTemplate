@@ -33,3 +33,6 @@ vstools/
 
 #imgui
 **/imgui.ini
+
+#Manifold
+ShaderCollection.json
