@@ -9,5 +9,5 @@ Check https://github.com/ManifoldEngine/Manifold/ for more information.
 
 ## First Start Checklist
 1. Configure your premake5.lua file
-1. Rename Template/ if to your projects name
+1. Rename Template/ if necessary
 1. Run GenerateProjectFiles and ImportAssets
