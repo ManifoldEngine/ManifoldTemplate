@@ -1,5 +1,6 @@
 local locations = {}
 
+locations.bin = "%{wks.location}/bin"
 locations.outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 locations.enginedir = "%{wks.location}/Engine"
 locations.moduledir = locations.enginedir .. "/Modules"

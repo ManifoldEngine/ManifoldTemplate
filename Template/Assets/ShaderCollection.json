@@ -1,5 +1,8 @@
 {
 	"paths": [
-		"C:/Repository/ManifoldTemplate\Engine/Assets\Shaders\flatColor.shader",
+		"Engine\Assets\Shaders\flatColor.shader",
+		"Engine\Modules\UI\Assets\Shaders\ui_fillableBar.shader",
+		"Engine\Modules\UI\Assets\Shaders\ui_sprite.shader",
+		"Engine\Tests\Assets\shader.shader",
 	],
 }

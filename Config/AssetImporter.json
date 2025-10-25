@@ -1,4 +1,4 @@
 {
-	"engineAssetPath": "Engine/Assets",
-	"projectAssetPath": "Template/Assets"
+	"enginePath": "Engine",
+	"projectPath": "Template"
 }
